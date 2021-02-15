@@ -41,7 +41,7 @@ class MusicalInstrument{
   public function getName(){
       return $this -> name;
   }
-  public function gettype(){
+  public function getType(){
       return $this -> type;
   }
   public function getBrand(){
@@ -69,7 +69,7 @@ $instruments = [
   "kazoo" => new MusicalInstrument ("KZ2", "fiato", "Amazon", 0, 10)
 ];
 
-var_dump($instruments);
+// var_dump($instruments);
 
  ?>
 
@@ -79,12 +79,39 @@ var_dump($instruments);
     <meta charset="utf-8">
     <title>php OOP 1</title>
   </head>
+  <style media="screen">
+    body{
+      background-color: lightgreen;
+    }
+    .container{
+      width: 80%;
+      height: 100vh;
+      margin: auto;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .card{
+      padding: 10px;
+      border: 2px solid blue;
+      background-color: #23d4af;
+      box-shadow: 2px 2px blue;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+    }
+  </style>
 
-  <body>
     <div class="container">
-      <div class="card">
-        
-      </div>
+      <?php foreach ($instruments as $value): ?>
+        <div class="card">
+          <h2><?php echo ($value -> getName()) ?></h2>
+          <p>Tipo: <?php echo ($value -> getType()) ?></p>
+          <p>Marca: <?php echo ($value -> getBrand()) ?></p>
+          <p>Prezzo: <?php echo ($value -> getAveragePrice()) ?> euro.</p>
+        </div>
+      <?php endforeach; ?>
     </div>
   </body>
 </html>
